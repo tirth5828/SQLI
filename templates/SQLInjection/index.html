@@ -1,0 +1,17 @@
+{% extends "SQLInjection/layout.html" %} {% block body %}
+<h1>Tasks</h1>
+
+<ul>
+    <li>
+        <h2>Task 1</h2>
+        <p>Break the login System</p>
+        <a href="{% url 'index'  %}">Login Page</a>
+    </li>
+    <li>
+        <h2>Task 2</h2>
+        <p>Get the list of non public passengers</p>
+        <a href="{% url 'search'  %}">Login Page</a>
+    </li>
+
+</ul>
+{% endblock %}

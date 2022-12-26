@@ -1,0 +1,29 @@
+{% extends "flights/layout.html" %} {% block body %}
+
+<form action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="first" placeholder="first" required>
+    <input type="text" name="last" placeholder="last" required>
+    <input type="submit" value="search">
+</form>
+
+{% for passenger in passengers %}
+<ul>
+    <li>Name : {{ passenger.first }}</li>
+    <li>Surname : {{ passenger.last }}</li>
+    <li>Flights : </li>
+    <ul>
+    {%for flight in passenger.flights.all%}
+    <li>Origin : {{ flight.origin }}</li>
+    <li>Destination : {{ flight.destination }}</li>
+    <li>Duration : {{ flight.duration }}</li>
+    <li>----------------- </li>
+    {%endfor%}
+</ul>
+</ul>
+{% endfor %}
+
+
+
+
+{% endblock %}
